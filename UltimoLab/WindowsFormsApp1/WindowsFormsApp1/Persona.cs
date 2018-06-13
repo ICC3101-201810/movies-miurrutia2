@@ -15,17 +15,35 @@ namespace WindowsFormsApp1
         String nombre;
         String apellido;
         String fechadenacimiento;
-        String profesion;
         String Biografia;
 
-        public Persona(string nombre, string apellido, string fechadenacimiento, string profesion, string biografia)
+        public Persona(string nombre, string apellido, string fechadenacimiento, string biografia)
         {
             this.nombre = nombre;
             this.apellido = apellido;
             this.fechadenacimiento = fechadenacimiento;
-            this.profesion = profesion;
             Biografia = biografia;
         }
     }
 
+    public class Actor : Persona 
+    {
+        public Actor(string nombre, string apellido, string fechadenacimiento, string biografia) : base(nombre, apellido, fechadenacimiento, biografia)
+        {
+        }
+    }
+
+    public class Director : Persona
+    {
+        public Director(string nombre, string apellido, string fechadenacimiento, string biografia) : base(nombre, apellido, fechadenacimiento, biografia)
+        {
+        }
+    }
+
+    public class Productor : Persona
+    {
+        public Productor(string nombre, string apellido, string fechadenacimiento, string biografia) : base(nombre, apellido, fechadenacimiento, biografia)
+        {
+        }
+    }
 }

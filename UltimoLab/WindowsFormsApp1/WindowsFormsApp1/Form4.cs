@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form4 : Form
     {
+        public List<Persona> Personas = new List<Persona>();
         public Form4()
         {
             InitializeComponent();
@@ -32,6 +33,14 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Actor act in Personas)
+            {
+                this.listBox1.Items.Add(act);
+            }
         }
     }
 }

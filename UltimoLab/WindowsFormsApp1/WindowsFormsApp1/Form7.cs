@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form7 : Form
     {
+        public List<Estudio> Estudios = new List<Estudio>();
         public Form7()
         {
             InitializeComponent();
@@ -27,6 +28,14 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Estudio est in Estudios)
+            {
+                this.listBox1.Items.Add(est);
+            }
         }
     }
 }

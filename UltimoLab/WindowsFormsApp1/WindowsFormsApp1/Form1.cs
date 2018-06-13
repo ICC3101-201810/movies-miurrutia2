@@ -7,11 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        public List<Persona> Personas = new List<Persona>();
+        public List<Pelicula> Peliculas = new List<Pelicula>();
+        public List<Estudio> Estudios = new List<Estudio>();
+        public List<PeliculaActor> peliculaactor = new List<PeliculaActor>();
+        public List<PeliculaProductor> peliculaproductor = new List<PeliculaProductor>();
+        public BasedeDatos basedato;
         public Form1()
         {
             InitializeComponent();
@@ -67,5 +76,20 @@ namespace WindowsFormsApp1
         {
             Application.Exit();
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            
+            BinaryFormatter bin = new BinaryFormatter();
+            Stream stream = new FileStream("../../Serializado.txt", FileMode.Create, FileAccess.Write);
+            bin.Serialize(stream, basedato);
+            stream.Close();
+            base.OnFormClosing(e);
+
+        }
+
+        
+
+
     }
 }
